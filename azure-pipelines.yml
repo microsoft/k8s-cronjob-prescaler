@@ -1,0 +1,86 @@
+trigger:
+- master
+
+pool:
+  vmImage: 'Ubuntu-16.04'
+
+jobs:
+- job: Build
+  strategy:
+    matrix:
+      Kubernetes1.14:
+        K8S_NODE_IMAGE: 'v1.14.10'
+      Kubernetes1.15:
+        K8S_NODE_IMAGE: 'v1.15.7'
+        PUBLISH: 'true'
+      Kubernetes1.16:
+        K8S_NODE_IMAGE: 'v1.16.4'
+      Kubernetes1.17:
+        K8S_NODE_IMAGE: 'v1.17.0'
+    maxParallel: 4
+  steps:
+  # Cache the docker image file
+  - task: CacheBeta@0
+    inputs:
+      key: go-cache | go.sum
+      path: ".gocache"
+      restoreKeys: go-cache 
+    displayName: Cache go mod cache
+
+  # Cache the docker image file
+  - task: CacheBeta@0
+    inputs:
+      key: docker-image | .devcontainer/**
+      path: ".dockercache"
+      restoreKeys: docker-image
+      cacheHitVar: DOCKER_CACHE_HIT
+    displayName: Cache docker layers
+
+  - script: |
+      bash -f ./ci.sh
+    displayName: 'Run CI'
+
+  - task: PublishTestResults@2
+    inputs:
+      testResultsFormat: 'JUnit'
+      testResultsFiles: '**/TEST-*.xml'
+      mergeTestResults: true
+      failTaskOnFailedTests: true
+      publishRunAttachments: true
+    displayName: Publish test results
+
+  - task: Docker@2
+    condition: succeeded()
+    inputs:
+      containerRegistry: 'my-registry'
+      command: 'login'
+    displayName: docker login
+
+  - task: Bash@3
+    condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'), eq(variables['PUBLISH'], 'true'))
+    inputs:
+      targetType: 'inline'
+      script: |
+        # Write your commands here
+        docker tag initcontainer:latest-${BUILD_BUILDNUMBER} my-registry.azurecr.io/initcontainer:latest-${BUILD_BUILDNUMBER}
+        docker tag initcontainer:latest-${BUILD_BUILDNUMBER} my-registry.azurecr.io/initcontainer:latest
+
+        docker push my-registry.azurecr.io/initcontainer:latest-${BUILD_BUILDNUMBER}
+        docker push my-registry.azurecr.io/initcontainer:latest
+    displayName: docker tag and push master
+
+  - task: Bash@3
+    condition: and(succeeded(), eq(variables['Build.Reason'], 'PullRequest'), eq(variables['PUBLISH'], 'true'))
+    inputs:
+      targetType: 'inline'
+      script: |
+        # Write your commands here
+        # Remove beginning of branch name
+        BRANCH_NAME=${SYSTEM_PULLREQUEST_SOURCEBRANCH//refs\/heads\//}
+        # Replace all / with -
+        BRANCH_NAME=${BRANCH_NAME//\//-}
+        docker tag initcontainer:latest-${BUILD_BUILDNUMBER} my-registry.azurecr.io/initcontainer:pr-${BRANCH_NAME}-${BUILD_BUILDNUMBER}
+
+        docker push my-registry.azurecr.io/initcontainer:pr-${BRANCH_NAME}-${BUILD_BUILDNUMBER}
+    displayName: docker tag and push PR build
+

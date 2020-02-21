@@ -1,0 +1,32 @@
+{
+    "apiVersion": "v1",
+    "count": 1,
+    "eventTime": null,
+    "firstTimestamp": "2020-01-29T14:38:02Z",
+    "involvedObject": {
+        "apiVersion": "psc.cronprimer.local/v1alpha1",
+        "kind": "PreScaledCronJob",
+        "name": "psc-test-local-babgvr",
+        "namespace": "psc-system",
+        "resourceVersion": "910",
+        "uid": "522bd349-06ad-4e27-8311-12872ce344a2"
+    },
+    "kind": "Event",
+    "lastTimestamp": "2020-01-29T14:38:02Z",
+    "message": "Event timeInitContainerRan took 50s on pod autogen-psc-test-local-babgvr-1580308620-d2plh",
+    "metadata": {
+        "creationTimestamp": "2020-01-29T14:38:02Z",
+        "name": "psc-test-local-babgvr.15ee625fd3c8d22e",
+        "namespace": "psc-system",
+        "resourceVersion": "12580",
+        "selfLink": "/api/v1/namespaces/psc-system/events/psc-test-local-babgvr.15ee625fd3c8d22e",
+        "uid": "59dc0028-9793-4bc0-98dd-5cbc1e8c4b49"
+    },
+    "reason": "Metrics",
+    "reportingComponent": "",
+    "reportingInstance": "",
+    "source": {
+        "component": "pod-controller"
+    },
+    "type": "Normal"
+}

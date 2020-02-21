@@ -1,0 +1,2 @@
+croniter==0.3.31
+kubernetes==10.0.1

@@ -1,0 +1,58 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  labels:
+    control-plane: controller-cronprimer-manager
+  name: system
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: controller-manager
+  namespace: system
+  labels:
+    control-plane: controller-cronprimer-manager
+spec:
+  selector:
+    matchLabels:
+      control-plane: controller-cronprimer-manager
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        control-plane: controller-cronprimer-manager
+    spec:
+      containers:
+      - command:
+        - /manager
+        args:
+        - --enable-leader-election
+        image: controller:latest
+        name: manager
+        env:
+          - name: INIT_CONTAINER_IMAGE
+            valueFrom:
+              configMapKeyRef:
+                name: initcontainer-configmap
+                key: initContainerImage
+        resources:
+          limits:
+            cpu: 100m
+            memory: 30Mi
+          requests:
+            cpu: 100m
+            memory: 20Mi
+        readinessProbe:
+          httpGet:
+            path: /ready
+            port: 8081
+          initialDelaySeconds: 5
+          periodSeconds: 10    
+        livenessProbe:
+          httpGet:
+            path: /alive
+            port: 8081
+          initialDelaySeconds: 10
+          periodSeconds: 10
+      terminationGracePeriodSeconds: 10
+      priorityClassName: psc-high-priority

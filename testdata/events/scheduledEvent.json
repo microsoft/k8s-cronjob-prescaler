@@ -1,0 +1,32 @@
+{
+    "apiVersion": "v1",
+    "count": 1,
+    "eventTime": null,
+    "firstTimestamp": "2020-01-29T12:03:07Z",
+    "involvedObject": {
+        "apiVersion": "v1",
+        "kind": "Pod",
+        "name": "autogen-psc-test-local-jbyphf-1580299380-nqj4z",
+        "namespace": "psc-system",
+        "resourceVersion": "2635",
+        "uid": "2cbd8c39-2506-4f2a-98bc-6f5a3098aadc"
+    },
+    "kind": "Event",
+    "lastTimestamp": "2020-01-29T12:03:07Z",
+    "message": "Successfully assigned psc-system/autogen-psc-test-local-jbyphf-1580299380-nqj4z to psccontroller-control-plane",
+    "metadata": {
+        "creationTimestamp": "2020-01-29T12:03:07Z",
+        "name": "autogen-psc-test-local-jbyphf-1580299380-nqj4z.15ee59eb880fbe3f",
+        "namespace": "psc-system",
+        "resourceVersion": "2640",
+        "selfLink": "/api/v1/namespaces/psc-system/events/autogen-psc-test-local-jbyphf-1580299380-nqj4z.15ee59eb880fbe3f",
+        "uid": "c197694f-7f29-4e04-8ec6-21ad4d9ec45c"
+    },
+    "reason": "Scheduled",
+    "reportingComponent": "",
+    "reportingInstance": "",
+    "source": {
+        "component": "default-scheduler"
+    },
+    "type": "Normal"
+}

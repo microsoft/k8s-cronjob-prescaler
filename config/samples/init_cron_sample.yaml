@@ -1,0 +1,53 @@
+# This sample file provides an easy mechanism for testing the initContainer image of this project
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  namespace: default
+  name: sampleinitcron
+spec:
+  schedule: "* * * * *"
+  jobTemplate:
+    spec:
+      template:
+        # This placeholder label is current required to allow the
+        # mutation admission controller to patch it
+        metadata:
+          labels:
+            placeholder: ""
+        spec:
+          initContainers:
+          - name: warmup
+            image: initcontainer:1
+            env:
+            - name: NAMESPACE
+              value: psc-system
+            - name: CRONJOB_SCHEDULE
+              value: "2/5 * * * *"
+          containers:
+          - name: greeter
+            image: busybox
+            args:
+            - /bin/sh
+            - -c
+            - date; echo Hello from the Kubernetes cluster
+            resources:
+              requests:
+                memory: "512Mi"
+                cpu: "250m"
+              limits:
+                memory: "1Gi"
+                cpu: "500m"
+          restartPolicy: OnFailure
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  creationTimestamp: null
+  name: manager-role
+rules:
+- apiGroups:
+  - ""
+  resources:
+  - pods
+  verbs:
+  - list

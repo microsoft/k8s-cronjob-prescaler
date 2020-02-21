@@ -1,0 +1,280 @@
+{
+    "apiVersion": "v1",
+    "items": [
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2020-01-29T12:03:07Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "kind": "Pod",
+                "name": "autogen-psc-test-local-jbyphf-1580299380-nqj4z",
+                "namespace": "psc-system",
+                "resourceVersion": "2635",
+                "uid": "2cbd8c39-2506-4f2a-98bc-6f5a3098aadc"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2020-01-29T12:03:07Z",
+            "message": "Successfully assigned psc-system/autogen-psc-test-local-jbyphf-1580299380-nqj4z to psccontroller-control-plane",
+            "metadata": {
+                "creationTimestamp": "2020-01-29T12:03:07Z",
+                "name": "autogen-psc-test-local-jbyphf-1580299380-nqj4z.15ee59eb880fbe3f",
+                "namespace": "psc-system",
+                "resourceVersion": "2640",
+                "selfLink": "/api/v1/namespaces/psc-system/events/autogen-psc-test-local-jbyphf-1580299380-nqj4z.15ee59eb880fbe3f",
+                "uid": "c197694f-7f29-4e04-8ec6-21ad4d9ec45c"
+            },
+            "reason": "Scheduled",
+            "reportingComponent": "",
+            "reportingInstance": "",
+            "source": {
+                "component": "default-scheduler"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2020-01-29T12:03:07Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.initContainers{injected-0d825b4f-07f0-4952-8150-fba894c613b1}",
+                "kind": "Pod",
+                "name": "autogen-psc-test-local-jbyphf-1580299380-nqj4z",
+                "namespace": "psc-system",
+                "resourceVersion": "2638",
+                "uid": "2cbd8c39-2506-4f2a-98bc-6f5a3098aadc"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2020-01-29T12:03:07Z",
+            "message": "Container image \"initcontainer:1\" already present on machine",
+            "metadata": {
+                "creationTimestamp": "2020-01-29T12:03:07Z",
+                "name": "autogen-psc-test-local-jbyphf-1580299380-nqj4z.15ee59eba8ad68b2",
+                "namespace": "psc-system",
+                "resourceVersion": "2652",
+                "selfLink": "/api/v1/namespaces/psc-system/events/autogen-psc-test-local-jbyphf-1580299380-nqj4z.15ee59eba8ad68b2",
+                "uid": "098fe463-effb-4b8d-b332-cc45d78c4730"
+            },
+            "reason": "Pulled",
+            "reportingComponent": "",
+            "reportingInstance": "",
+            "source": {
+                "component": "kubelet",
+                "host": "psccontroller-control-plane"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2020-01-29T12:03:08Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.initContainers{injected-0d825b4f-07f0-4952-8150-fba894c613b1}",
+                "kind": "Pod",
+                "name": "autogen-psc-test-local-jbyphf-1580299380-nqj4z",
+                "namespace": "psc-system",
+                "resourceVersion": "2638",
+                "uid": "2cbd8c39-2506-4f2a-98bc-6f5a3098aadc"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2020-01-29T12:03:08Z",
+            "message": "Created container injected-0d825b4f-07f0-4952-8150-fba894c613b1",
+            "metadata": {
+                "creationTimestamp": "2020-01-29T12:03:08Z",
+                "name": "autogen-psc-test-local-jbyphf-1580299380-nqj4z.15ee59ebaf6c8627",
+                "namespace": "psc-system",
+                "resourceVersion": "2654",
+                "selfLink": "/api/v1/namespaces/psc-system/events/autogen-psc-test-local-jbyphf-1580299380-nqj4z.15ee59ebaf6c8627",
+                "uid": "dfccd34f-1801-46c1-a72a-914206e8b873"
+            },
+            "reason": "Created",
+            "reportingComponent": "",
+            "reportingInstance": "",
+            "source": {
+                "component": "kubelet",
+                "host": "psccontroller-control-plane"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2020-01-29T12:03:08Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.initContainers{injected-0d825b4f-07f0-4952-8150-fba894c613b1}",
+                "kind": "Pod",
+                "name": "autogen-psc-test-local-jbyphf-1580299380-nqj4z",
+                "namespace": "psc-system",
+                "resourceVersion": "2638",
+                "uid": "2cbd8c39-2506-4f2a-98bc-6f5a3098aadc"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2020-01-29T12:03:08Z",
+            "message": "Started container injected-0d825b4f-07f0-4952-8150-fba894c613b1",
+            "metadata": {
+                "creationTimestamp": "2020-01-29T12:03:08Z",
+                "name": "autogen-psc-test-local-jbyphf-1580299380-nqj4z.15ee59ebb457f0bb",
+                "namespace": "psc-system",
+                "resourceVersion": "2656",
+                "selfLink": "/api/v1/namespaces/psc-system/events/autogen-psc-test-local-jbyphf-1580299380-nqj4z.15ee59ebb457f0bb",
+                "uid": "b451eb09-d73e-4d82-a65b-4adbd96f3546"
+            },
+            "reason": "Started",
+            "reportingComponent": "",
+            "reportingInstance": "",
+            "source": {
+                "component": "kubelet",
+                "host": "psccontroller-control-plane"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2020-01-29T12:04:03Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{test-busybox}",
+                "kind": "Pod",
+                "name": "autogen-psc-test-local-jbyphf-1580299380-nqj4z",
+                "namespace": "psc-system",
+                "resourceVersion": "2638",
+                "uid": "2cbd8c39-2506-4f2a-98bc-6f5a3098aadc"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2020-01-29T12:04:03Z",
+            "message": "Pulling image \"busybox\"",
+            "metadata": {
+                "creationTimestamp": "2020-01-29T12:04:03Z",
+                "name": "autogen-psc-test-local-jbyphf-1580299380-nqj4z.15ee59f8aa4180eb",
+                "namespace": "psc-system",
+                "resourceVersion": "2751",
+                "selfLink": "/api/v1/namespaces/psc-system/events/autogen-psc-test-local-jbyphf-1580299380-nqj4z.15ee59f8aa4180eb",
+                "uid": "637edad4-8528-4293-8fc7-5cf96c1a1da3"
+            },
+            "reason": "Pulling",
+            "reportingComponent": "",
+            "reportingInstance": "",
+            "source": {
+                "component": "kubelet",
+                "host": "psccontroller-control-plane"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2020-01-29T12:04:05Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{test-busybox}",
+                "kind": "Pod",
+                "name": "autogen-psc-test-local-jbyphf-1580299380-nqj4z",
+                "namespace": "psc-system",
+                "resourceVersion": "2638",
+                "uid": "2cbd8c39-2506-4f2a-98bc-6f5a3098aadc"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2020-01-29T12:04:05Z",
+            "message": "Successfully pulled image \"busybox\"",
+            "metadata": {
+                "creationTimestamp": "2020-01-29T12:04:05Z",
+                "name": "autogen-psc-test-local-jbyphf-1580299380-nqj4z.15ee59f8fefd90a2",
+                "namespace": "psc-system",
+                "resourceVersion": "2756",
+                "selfLink": "/api/v1/namespaces/psc-system/events/autogen-psc-test-local-jbyphf-1580299380-nqj4z.15ee59f8fefd90a2",
+                "uid": "2c536ce9-5f6a-4647-8303-ecc9f625a89d"
+            },
+            "reason": "Pulled",
+            "reportingComponent": "",
+            "reportingInstance": "",
+            "source": {
+                "component": "kubelet",
+                "host": "psccontroller-control-plane"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2020-01-29T12:04:05Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{test-busybox}",
+                "kind": "Pod",
+                "name": "autogen-psc-test-local-jbyphf-1580299380-nqj4z",
+                "namespace": "psc-system",
+                "resourceVersion": "2638",
+                "uid": "2cbd8c39-2506-4f2a-98bc-6f5a3098aadc"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2020-01-29T12:04:05Z",
+            "message": "Created container test-busybox",
+            "metadata": {
+                "creationTimestamp": "2020-01-29T12:04:05Z",
+                "name": "autogen-psc-test-local-jbyphf-1580299380-nqj4z.15ee59f9050165ef",
+                "namespace": "psc-system",
+                "resourceVersion": "2757",
+                "selfLink": "/api/v1/namespaces/psc-system/events/autogen-psc-test-local-jbyphf-1580299380-nqj4z.15ee59f9050165ef",
+                "uid": "006829e7-64ff-4867-bbee-6322a04cc6f9"
+            },
+            "reason": "Created",
+            "reportingComponent": "",
+            "reportingInstance": "",
+            "source": {
+                "component": "kubelet",
+                "host": "psccontroller-control-plane"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2020-01-29T12:04:05Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{test-busybox}",
+                "kind": "Pod",
+                "name": "autogen-psc-test-local-jbyphf-1580299380-nqj4z",
+                "namespace": "psc-system",
+                "resourceVersion": "2638",
+                "uid": "2cbd8c39-2506-4f2a-98bc-6f5a3098aadc"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2020-01-29T12:04:05Z",
+            "message": "Started container test-busybox",
+            "metadata": {
+                "creationTimestamp": "2020-01-29T12:04:05Z",
+                "name": "autogen-psc-test-local-jbyphf-1580299380-nqj4z.15ee59f9093577a9",
+                "namespace": "psc-system",
+                "resourceVersion": "2758",
+                "selfLink": "/api/v1/namespaces/psc-system/events/autogen-psc-test-local-jbyphf-1580299380-nqj4z.15ee59f9093577a9",
+                "uid": "b958ce5b-69aa-4e37-b1d9-fa85388031d9"
+            },
+            "reason": "Started",
+            "reportingComponent": "",
+            "reportingInstance": "",
+            "source": {
+                "component": "kubelet",
+                "host": "psccontroller-control-plane"
+            },
+            "type": "Normal"
+        }
+    ],
+    "kind": "List",
+    "metadata": {
+        "resourceVersion": "",
+        "selfLink": ""
+    }
+}

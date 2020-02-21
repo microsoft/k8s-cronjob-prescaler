@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: psc-webhook-service
+  namespace: psc-system
+  selfLink: /api/v1/namespaces/psc-system/services/psc-webhook-service
+spec:
+  clusterIP: 10.98.155.51
+  ports:
+  - port: 443
+    protocol: TCP
+    targetPort: 9443
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}

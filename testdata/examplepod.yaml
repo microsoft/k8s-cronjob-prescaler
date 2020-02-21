@@ -1,0 +1,64 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  generateName: autogen-psc-test-local-ezkryx-1580302500-
+  labels:
+    controller-uid: 0883838b-80af-4d42-9897-821f1012c6b5
+    job-name: autogen-psc-test-local-ezkryx-1580302500
+    primedcron: psc-test-local-ezkryx
+  name: autogen-psc-test-local-ezkryx-1580302500-b2wrx
+  namespace: psc-system
+spec:
+  containers:
+  - args:
+    - /bin/sh
+    - -c
+    - date; sleep 30s; date;
+    image: busybox
+    imagePullPolicy: Always
+    name: test-busybox
+    resources: {}
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+    volumeMounts:
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: default-token-q29rf
+      readOnly: true
+  dnsPolicy: ClusterFirst
+  enableServiceLinks: true
+  initContainers:
+  - env:
+    - name: CRONJOB_SCHEDULE
+      value: '*/1 * * * *'
+    image: initcontainer:1
+    imagePullPolicy: IfNotPresent
+    name: injected-0d825b4f-07f0-4952-8150-fba894c613b1
+    resources: {}
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+    volumeMounts:
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: default-token-q29rf
+      readOnly: true
+  nodeName: psccontroller-control-plane
+  priority: 0
+  restartPolicy: OnFailure
+  schedulerName: default-scheduler
+  securityContext: {}
+  serviceAccount: default
+  serviceAccountName: default
+  terminationGracePeriodSeconds: 30
+  tolerations:
+  - effect: NoExecute
+    key: node.kubernetes.io/not-ready
+    operator: Exists
+    tolerationSeconds: 300
+  - effect: NoExecute
+    key: node.kubernetes.io/unreachable
+    operator: Exists
+    tolerationSeconds: 300
+  volumes:
+  - name: default-token-q29rf
+    secret:
+      defaultMode: 420
+      secretName: default-token-q29rf

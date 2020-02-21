@@ -1,0 +1,30 @@
+apiVersion: psc.cronprimer.local/v1alpha1
+kind: PreScaledCronJob
+metadata:
+  name: prescaledcronjob-sample  
+  namespace: psc-system
+spec:
+  warmUpTimeMins: 15
+  cronJob:
+    metadata:
+      name: my-cron-sample
+    spec:
+      schedule: "*/30 * * * *"
+      jobTemplate:
+        spec:
+          template:
+            spec:
+              containers:
+              - name: hello
+                image: busybox
+                args:
+                - /bin/sh
+                - -c
+                - date; echo Hello from the Kubernetes cluster
+                resources:
+                  limits:
+                    nvidia.com/gpu: 1
+                  requests:
+                    nvidia.com/gpu: 1
+              restartPolicy: OnFailure
+
