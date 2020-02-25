@@ -28,7 +28,6 @@ deploy-cluster: manifests install-crds install-prometheus kustomize-deployment
 
 install-prometheus:
 ifneq (1, $(shell helm list | grep ${PROMETHEUS_INSTANCE_NAME} | wc -l))
-	chmod +x ./deploy/prometheus-grafana/deploy-prometheus.sh 
 	./deploy/prometheus-grafana/deploy-prometheus.sh
 else
 	@echo "Helm installation of the prometheus-operator already exists with name ${PROMETHEUS_INSTANCE_NAME}... skipping"
