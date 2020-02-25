@@ -10,16 +10,9 @@ jobs:
       max-parallel: 4
       matrix:
         kubernetes_version: [v1.14.10, v1.15.7, v1.16.4, v1.17.0]
-    
 
     steps:
     - uses: actions/checkout@v2
-    - name: Run a one-line script
-      run: echo Hello, world!
-    - name: Run a multi-line script
-      run: |
-        echo Add other actions to build,
-        echo test, and deploy your project.
     - name: Run Continuous Integration
       run: sh ./ci.sh 
       env:
