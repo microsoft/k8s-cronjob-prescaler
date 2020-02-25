@@ -1,0 +1,20 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 4
+      matrix:
+        kubernetes_version: [v1.14.10, v1.15.7, v1.16.4, v1.17.0]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Run Continuous Integration
+      run: sh ./ci.sh 
+      env:
+        K8S_NODE_IMAGE: ${{ matrix.kubernetes_version }}
+
