@@ -7,8 +7,6 @@ on:
   pull_request:
     branches: 
       - master
-  schedule:
-    - cron: '0 0 * * 0' # runs every Sunday at midnight
 
 jobs:
   build:
