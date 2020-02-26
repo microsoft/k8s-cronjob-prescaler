@@ -1,0 +1,28 @@
+name: Weekly CI
+
+on:
+    schedule:
+    - cron: '0 0 * * 0' # runs every Sunday at midnight
+      
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install jq
+        run: |
+          sudo apt-get install jq
+
+      - uses: actions/cache@v1
+        with:
+          path: ~/go/pkg/mod
+          key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
+          restore-keys: |
+            ${{ runner.os }}-go-
+
+      - name: Run Continuous Integration
+        run: |
+          export K8S_NODE_IMAGE="$(curl -s https://registry.hub.docker.com/v1/repositories/kindest/node/tags | jq -r '.[-1].name')"
+          sh ./ci.sh 
