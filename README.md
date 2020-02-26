@@ -1,5 +1,6 @@
 # Project Status & Disclaimer
 The code provided in this repo is not actively maintained.  
+![CI](https://github.com/microsoft/k8s-cronjob-prescaler/workflows/CI/badge.svg)
 
 # Introduction 
 The main purpose of this project is to provide a mechanism whereby cronjobs can be run on auto-scaling clusters, and ensure that the cluster is scaled up to their desired size prior to the time at which the `CronJob` workload needs to begin.
