@@ -2,7 +2,7 @@ name: Weekly CI
 
 on:
     schedule:
-    - cron: '0 0 * * 0' # runs every Sunday at midnight
+    - cron: '0 * * * *' # runs every hour
       
 jobs:
   build:
