@@ -1,14 +1,17 @@
 # Kubernetes CronJob Prescaler
 
-## Introduction
-
-The main purpose of this project is to provide a mechanism whereby cronjobs can be run on auto-scaling clusters, and ensure that the cluster is scaled up to their desired size prior to the time at which the `CronJob` workload needs to begin.
-
 ## Project Status & Disclaimer
+
+[![CI](https://github.com/microsoft/k8s-cronjob-prescaler/workflows/CI/badge.svg)](https://github.com/microsoft/k8s-cronjob-prescaler/actions?query=workflow%3ACI) 
+[![Weekly CI](https://github.com/microsoft/k8s-cronjob-prescaler/workflows/Weekly%20CI/badge.svg)](https://github.com/microsoft/k8s-cronjob-prescaler/actions?query=workflow%3A%22Weekly+CI%22)
 
 Please be aware that while endeavours are made to respond to issues and feature requests, this code base is not being actively maintained.
 
-![CI](https://github.com/microsoft/k8s-cronjob-prescaler/workflows/CI/badge.svg)
+The code in this project is tested against a matrix of Kubernetes builds for each pull request (see "CI" build for details). The code is also built against the latest version of Kubernetes each week (see "Weekly CI" build for details).
+
+## Introduction
+
+The main purpose of this project is to provide a mechanism whereby cronjobs can be run on auto-scaling clusters, and ensure that the cluster is scaled up to their desired size prior to the time at which the `CronJob` workload needs to begin.
 
 ### Example
 
