@@ -31,4 +31,3 @@ jobs:
       run: sh ./ci.sh 
       env:
         K8S_NODE_IMAGE: ${{ matrix.kubernetes_version }}
-
