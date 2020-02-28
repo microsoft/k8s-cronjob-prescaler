@@ -1,13 +1,7 @@
 name: CI
 
-on:
-  push:
-    branches: 
-      - master
-  pull_request:
-    branches: 
-      - master
-      - bj/testpr
+# Trigger the workflow on push or pull request
+on: [push, pull_request]
 
 jobs:
   build:
