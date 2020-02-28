@@ -8,7 +8,7 @@ assignees: ''
 ---
 
 **Notice on Active Maintenance**
-Please be aware that while endeavours are made to respond to issues and feature requests, nobody is currently actively maintaining this repo - so responses may not be immediate.
+Please be aware that while endeavours are made to respond to issues and feature requests, this code base is not being actively maintained. Responses may not be immediate.
 
 **Describe the bug**
 A clear and concise description of what the bug is.
