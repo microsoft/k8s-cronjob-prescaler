@@ -11,11 +11,11 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     strategy:
       max-parallel: 4
       matrix:
-        kubernetes_version: [v1.14.10, v1.15.7, v1.16.4, v1.17.2]
+        kubernetes_version: [v1.15.7, v1.16.4, v1.17.2, v1.18.0]
 
     steps:
     - uses: actions/checkout@v2
@@ -31,25 +31,4 @@ jobs:
       run: sh ./ci.sh 
       env:
         K8S_NODE_IMAGE: ${{ matrix.kubernetes_version }}
-  
-  build-latestk8s:
-    runs-on: ubuntu-18.04
-    steps:
-        - uses: actions/checkout@v2
-
-        - name: Install jq
-          run: |
-            sudo apt-get install jq
-
-        - uses: actions/cache@v1
-          with:
-            path: ~/go/pkg/mod
-            key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
-            restore-keys: |
-              ${{ runner.os }}-go-
-
-        - name: Run Continuous Integration
-          run: |
-            export K8S_NODE_IMAGE="$(curl -s https://registry.hub.docker.com/v1/repositories/kindest/node/tags | jq -r '.[-1].name')"
-            sh ./ci.sh 
 
